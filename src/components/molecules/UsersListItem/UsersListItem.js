@@ -10,13 +10,15 @@ const Wrapper = styled.li`
   gap: 0 2rem;
 `;
 
-const UsersListItem = ({ user: { average, name, attendance } }) => {
+const UsersListItem = ({ user: { average, name, attendance }, handleDeleteUser }) => {
   return (
     <Wrapper>
       <Average average={average} />
       <div>{name}</div>
       <p>{attendance}</p>
-      <Button isSecondary>X</Button>
+      <Button isSecondary onClick={() => handleDeleteUser(name)}>
+        X
+      </Button>
     </Wrapper>
   );
 };
