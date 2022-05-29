@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { users } from 'data/users';
-import UsersListItem from 'components/UsersListItem/UsersListItem';
+import UsersListItem from 'components/molecules/UsersListItem/UsersListItem';
 
 const UsersList = () => {
   return (

@@ -1,14 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from 'components/atoms/Button/Button';
+import styled from 'styled-components';
+import Average from 'components/atoms/Average/Average';
+
+const Wrapper = styled.li`
+  display: flex;
+  align-items: center;
+  gap: 0 2rem;
+`;
 
 const UsersListItem = ({ user: { average, name, attendance } }) => {
   return (
-    <li>
-      <div>{average}</div>
+    <Wrapper>
+      <Average average={average} />
       <div>{name}</div>
       <p>{attendance}</p>
-      <button>X</button>
-    </li>
+      <Button isSecondary>X</Button>
+    </Wrapper>
   );
 };
 
