@@ -5,7 +5,6 @@ import { theme } from 'assets/styles/theme';
 import { Wrapper } from './Average.styles';
 
 const changeAverageColor = (value) => {
-  console.log(value);
   if (value <= 2) return theme.colors.error;
   else if (value < 4) return theme.colors.warning;
   return theme.colors.success;
