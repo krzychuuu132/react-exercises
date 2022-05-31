@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
 import UsersListItem from 'components/molecules/UsersListItem/UsersListItem';
 import { Wrapper } from './UsersList.styles';
-import { UserShape } from 'types';
+import { UsersContext } from 'providers/UsersProvider';
 
-const UsersList = ({ users, handleDeleteUser }) => {
+const UsersList = () => {
+  const { users, handleDeleteUser } = useContext(UsersContext);
   return (
     <>
       <Wrapper>
@@ -16,11 +16,6 @@ const UsersList = ({ users, handleDeleteUser }) => {
       </Wrapper>
     </>
   );
-};
-
-UsersList.propTypes = {
-  user: PropTypes.arrayOf(PropTypes.shape(UserShape)),
-  handleDeleteUser: PropTypes.func,
 };
 
 export default UsersList;
