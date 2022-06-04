@@ -1,19 +1,13 @@
 import styled from 'styled-components';
 
 export const StyledButton = styled.button`
-  width: 25px;
-  height: 25px;
-  background-color: ${({ isSecondary }) => (isSecondary ? 'green' : 'grey')};
-  border-radius: 50px;
+  margin: 15px 0;
+  padding: ${({ isBig }) => (isBig ? '10px 38px' : '7px 20px')};
+  font-size: ${({ isBig, theme: { fontSize } }) => (isBig ? fontSize.m : fontSize.s)};
+  background-color: ${({ theme }) => theme.colors.lightPurple};
+  border-radius: 20px;
   border: none;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-weight: bold;
+  color: ${({ theme }) => theme.colors.darkGrey};
   cursor: pointer;
-
-  svg {
-    width: 100%;
-    height: 100%;
-  }
 `;

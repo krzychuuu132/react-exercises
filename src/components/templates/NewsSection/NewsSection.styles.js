@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { ViewWrapper } from 'components/molecules/ViewWrapper/ViewWrapper';
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   grid-row: 1 / 3;
@@ -10,7 +10,6 @@ export const Wrapper = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   padding: 50px;
-  overflow-y: scroll;
 `;
 
 export const NewsSectionHeader = styled.h2`

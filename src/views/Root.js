@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { ThemeProvider } from 'styled-components';
 
 import UsersList from 'components/organisms/UsersList/UsersList';
-import MainTemplate from 'components/templates/MainTemplate';
+import MainTemplate from 'components/templates/MainTemplate/MainTemplate';
 import AddUser from './AddUser';
 import { UsersProvider } from 'providers/UsersProvider';
 
