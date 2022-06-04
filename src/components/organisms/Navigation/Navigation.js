@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 const activeClassName = 'active';
 const StyledNavLink = styled(NavLink).attrs({ activeClassName })`
-  padding: 2rem 3rem;
+  padding: 2rem 2rem;
   text-decoration: none;
   text-transform: uppercase;
   &.${activeClassName} {
@@ -16,6 +16,10 @@ const StyledNavLink = styled(NavLink).attrs({ activeClassName })`
 
 const StyledNav = styled.nav`
   margin: 2rem 0;
+  grid-column: 1/2;
+  grid-row: 1/3;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Navigation = () => {
