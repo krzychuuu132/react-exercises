@@ -25,7 +25,7 @@ const StyledNav = styled.nav`
 const Navigation = () => {
   return (
     <StyledNav>
-      <StyledNavLink to="/">homepage</StyledNavLink>
+      <StyledNavLink to="/group">Dashboard</StyledNavLink>
       <StyledNavLink to="/add-user">Add user</StyledNavLink>
     </StyledNav>
   );
