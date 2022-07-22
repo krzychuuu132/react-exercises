@@ -5,11 +5,16 @@ import StudentsList from 'components/organisms/StudentsList/StudentsList';
 import { useStudents } from 'hooks/useStudents';
 import { GroupWrapper, TitleWrapper, Wrapper } from 'views/Dashboard.styles';
 import { Title } from 'components/atoms/Title/Title';
+import useModal from 'hooks/useModal';
+import StudentDetails from 'components/molecules/StudentDetails/StudentDetails';
+import Modal from 'components/organisms/Modal/Modal';
 
 const Dashboard = () => {
   const [groups, setGroups] = useState([]);
-  const { getGroups } = useStudents();
+  const [currentStudent, setCurrentStudent] = useState({});
+  const { getGroups, getStudentsById } = useStudents();
   const { id } = useParams();
+  const { isModalOpen, handleCloseModal, handleOpenModal } = useModal();
 
   useEffect(() => {
     (async () => {
@@ -19,6 +24,12 @@ const Dashboard = () => {
   }, [getGroups]);
 
   if (!id && groups.length > 0) return <Redirect to={`/group/${groups[0]}`} />;
+
+  const handleOpenStudentDetails = async (id) => {
+    const student = await getStudentsById(id);
+    setCurrentStudent(student);
+    handleOpenModal();
+  };
 
   return (
     <Wrapper>
@@ -33,7 +44,10 @@ const Dashboard = () => {
         </nav>
       </TitleWrapper>
       <GroupWrapper>
-        <StudentsList />
+        <StudentsList handleOpenStudentDetails={handleOpenStudentDetails} />
+        <Modal handleClose={handleCloseModal} isOpen={isModalOpen}>
+          <StudentDetails student={currentStudent} />
+        </Modal>
       </GroupWrapper>
     </Wrapper>
   );
