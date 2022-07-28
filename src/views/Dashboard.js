@@ -23,7 +23,7 @@ const Dashboard = () => {
     })();
   }, [getGroups]);
 
-  if (!id && groups.length > 0) return <Redirect to={`/group/${groups[0]}`} />;
+  if (!id && groups.length > 0) return <Redirect to={`/group/${groups[0].id}`} />;
 
   const handleOpenStudentDetails = async (id) => {
     const student = await getStudentsById(id);
