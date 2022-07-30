@@ -33,6 +33,7 @@ export const Logo = styled.div`
 const activeClassName = 'active-link';
 export const StyledLink = styled(NavLink).attrs({ activeClassName })`
   font-weight: bold;
+  cursor: pointer;
   text-decoration: none;
   color: ${({ theme }) => theme.colors.darkGrey};
   text-align: right;

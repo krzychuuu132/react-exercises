@@ -1,4 +1,5 @@
 import { db } from 'mocks/db';
+import { authenticateRequest } from 'mocks/helpers';
 import { rest } from 'msw';
 
 const sanitizeUser = (user) => {
@@ -28,5 +29,12 @@ export const auth = [
         error: 'Invalid user data',
       })
     );
+  }),
+  rest.get('/me', (req, res, ctx) => {
+    if (authenticateRequest(req)) {
+      const user = db.teacher.getAll();
+      return res(ctx.status(200), ctx.json({ ...sanitizeUser(user) }));
+    }
+    return res(ctx.status(401));
   }),
 ];
